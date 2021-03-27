@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\cart;
 use Session;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -42,5 +43,22 @@ class ProductController extends Controller
     static function cartItem(){
         $userID=Session::get('user')['id'];
         return cart::where('user_id',$userID)->count();
+    }
+
+    function cartList(){
+        //return "hello";
+        $userID=Session::get('user')['id']; // we get user id from session
+        $data = DB::table('cart') // take data with cart table in DB
+        ->join('products','cart.product_id','products.id') // join two table products and cart with key like id is inproducts table nad prodcut_id in cart table 
+        ->select('products.*','cart.id as cart_id') // select all product columns table to display with *  and cart id for get assigned product tabele id 
+        ->where('cart.user_id',$userID) //with condition usrr_id that is logged in person
+        ->get();
+
+        return view('cartlist',['products'=>$data]);
+    }
+
+    function removeCart($id){
+        cart::destroy($id);
+        return redirect('cartlist');
     }
 }
