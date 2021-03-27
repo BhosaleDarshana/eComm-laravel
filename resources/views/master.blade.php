@@ -8,6 +8,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -31,6 +32,33 @@ $(document).ready(function(){
 .custom-login{
     height:500px;
     padding-top:100px;
+}
+img.slider-img{
+    height:400px !important;
+}
+
+.custom-product{
+    height:700px;
+}
+.slider-text{
+    background-color:rgba(0,0,0,0.075) !important;
+    color:black;
+}
+.trending-img{
+    height:100px;
+}
+.trending-item{
+    float:left;
+    width:16.5%;
+}
+.trending-wrapper{
+    margin:20px;
+}
+.product-img{
+    height:200px;
+}
+.search-box{
+    width:500px !important;
 }
 </style>
 </html>
