@@ -6,10 +6,10 @@
 </div>
 <div class="col-sm-10">
 <div class="trending-wrapper">
-<h3>products in cart list</h3>
-<a class="btn btn-success" href="/ordernow">order now</a><br/><br/>
+<h3>products in Order list</h3>
+
 <div class="carousel-inner">
-    @foreach($products as $item)
+    @foreach($orders as $item)
     <div class="row searched-item cart-list-divider">
       <div class="col-sm-3">
       <a href="detail/{{$item->id}}"> <!--when it is joint we use $item->id rather than $item['id'] -->
@@ -20,19 +20,21 @@
       <div class="col-sm-3">
       <div class="">
         <h3>{{$item->name}}</h3>
-        <p>{{$item->description}}</p>
+        <p>Delivery status : {{$item->status}}</p>
+        <p>Payment status : {{$item->payment_status}}</p>
+        <p>Pament Method : {{$item->payment_method}}</p>
+        <p>Delivery Address : {{$item->address}}</p>
+        <p>Price : {{$item->price}}</p>
       </div>
       </div>
 
       <div class="col-sm-3">
-      <a href="/removecart/{{$item->cart_id}}" class="btn btn-warning">remove from cart</a>
+      
       </div>
 
       </div>
       @endforeach
-      
-      <a class="btn btn-success" href="/ordernow">order now</a><br/><br/>
-
+    
     </div>
 </div>
 </div>
